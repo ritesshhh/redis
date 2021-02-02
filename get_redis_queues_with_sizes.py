@@ -1,3 +1,4 @@
+#import redis
 import time
 from django_redis import get_redis_connection
 
@@ -5,6 +6,7 @@ from django_redis import get_redis_connection
 def take_redis_snap(**kwargs):
     print("<=== take_redis_snap running ===>")
     length = 0
+    #r = redis.StrictRedis(host='localhost', port=6379, db=0)
     r = get_redis_connection("default")
     keys = r.keys('*')
 
